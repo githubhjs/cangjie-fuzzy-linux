@@ -23,7 +23,9 @@ curl -fsSL https://raw.githubusercontent.com/githubhjs/cangjie-fuzzy-linux/main/
 curl -fsSL https://raw.githubusercontent.com/githubhjs/cangjie-fuzzy-linux/main/install.sh | bash -s -- --with-cangjie5 --fuzzy-range wide
 ```
 
-選項：`--with-cangjie5` 也裝五代（同樣有容錯版）· `--fuzzy-range narrow|normal|wide` 範圍 · `--frontend ibus|fcitx5|fcitx` · `--no-deps` 不自動裝引擎套件 · `--no-model` · `--offline` · `--dry-run` · `--no-deploy`（完整清單：`--help`）
+選項：`--with-cangjie5` 也裝五代（同樣有容錯版）· `--fuzzy-range narrow|normal|wide` 範圍 · `--frontend ibus|fcitx5|fcitx` · `--no-deps` 不自動裝引擎套件 · `--no-model` · `--no-sweep` 不安裝倉頡滑行輸入板 · `--pad-ref REF` · `--offline` · `--dry-run` · `--no-deploy`（完整清單：`--help`）
+
+內附倉頡滑行輸入板（Cangjie Sweep Pad，`~/.local/bin/cangjie-sweep-pad`），預設一併安裝；使用 `--no-sweep` 可略過。相依套件為 python3-tk 與 xdotool（X11）或 ydotool（Wayland）。
 
 離線：下載 release 的 `-full.zip`，解開後執行 `bash install.sh`。
 
@@ -68,7 +70,9 @@ With options (for example 5th generation, a wider tolerance range):
 curl -fsSL https://raw.githubusercontent.com/githubhjs/cangjie-fuzzy-linux/main/install.sh | bash -s -- --with-cangjie5 --fuzzy-range wide
 ```
 
-Options: `--with-cangjie5` also install 5th generation (with its typo-tolerant version) · `--fuzzy-range narrow|normal|wide` · `--frontend ibus|fcitx5|fcitx` · `--no-deps` do not install engine packages · `--no-model` · `--offline` · `--dry-run` · `--no-deploy` (all options: `--help`)
+Options: `--with-cangjie5` also install 5th generation (with its typo-tolerant version) · `--fuzzy-range narrow|normal|wide` · `--frontend ibus|fcitx5|fcitx` · `--no-deps` do not install engine packages · `--no-model` · `--no-sweep` skip Cangjie Sweep Pad · `--pad-ref REF` · `--offline` · `--dry-run` · `--no-deploy` (all options: `--help`)
+
+Includes the Cangjie Sweep Pad (`~/.local/bin/cangjie-sweep-pad`), installed by default; pass `--no-sweep` to skip. Dependencies: python3-tk and xdotool (X11) or ydotool (Wayland).
 
 Offline: download the release `-full.zip`, unpack it and run `bash install.sh`.
 
@@ -92,3 +96,7 @@ Verified:
 ### Licence
 
 Our own files are MIT. The bundled tables, word list and language model are LGPL-3.0 data, shipped unchanged with the licence texts in the base project; see githubhjs/cangjie-fluency-linux.
+
+## Changelog / 更新紀錄
+
+- **v0.2.0** — Sweep Pad added (base installer v0.4.0); default on, `--no-sweep` to skip. / 新增倉頡滑行輸入板（基礎安裝程式 v0.4.0）；預設安裝，加 `--no-sweep` 可略過。
